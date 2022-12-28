@@ -1,5 +1,5 @@
 
-public class main {
+public class tutorial1 {
 
 	public static void main(String[] args) { // this is the main function. This is where the code starts running 
 	//comments
