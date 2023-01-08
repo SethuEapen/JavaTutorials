@@ -5,12 +5,18 @@ public class tutorial1 {
 	//comments
 		//these are comments denoted by two slashes. Anything after "//" does not affect the running of code
 		
+		/* 
+		 * These are multi-line comments
+		 */
+		
 	//variables
-		int number = 0; //can be any whole number
-		double decimal = 153.2; //for decimal values
-		boolean decition = false; //true or false
+		int number = 1; //can be any whole number from -2147483647 to 2147483647 - 32 bit
+		long bigNumber = 20; //can be any value -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 - 64 bit
+		float largeDecimal = 103.1f; //6-7 Decimal places
+		double decimal = 153.2; //15-16 Decimal places
+		boolean decition = true; //true or false
 		String words = "Hello world";
-		char letter = 'c';
+		char letter = 'g';
 		
 		//when declaring a variable you need to identify its type as above
 		//template: [data type] [name] (optional) = [value];
@@ -22,16 +28,19 @@ public class tutorial1 {
 		
 	//setting variables
 		uninitialized = 2; //sets to a value
+		
+		// left side is the thing being set and the right is the value it is being set to
+		
 		uninitialized++; //increments it one
 		uninitialized--; //decrements it by one
-		uninitialized += 10; //adds 10 to number
-		uninitialized -= 10; //subtracts 10 from the number
+		uninitialized += 10; //adds 10 to number - same as uninitialized = uninitialized + 10
+		uninitialized -= 10; //subtracts 10 from the number - same as uninitialized = uninitialized - 10
 		
 	//print statements
 		System.out.println(words);
 		System.out.println(decimal);
 		System.out.println("Hello World Again!");
-
+		System.out.println("uninitialized is equal to: " + uninitialized);
 	
 	//if statements
 		//inequalities
@@ -60,7 +69,7 @@ public class tutorial1 {
 			System.out.println(i);
 		}
 		//we can change how much the value is incremented by and starts at by modifying those parameters:
-		for (double j = 1.0; j < reps; j = j + 0.5) {
+		for (double j = 1.0; j < reps; j += 0.5) {
 			//as you can see we can also change the data type of the variable to match your needs
 			System.out.println(j);
 		}
@@ -73,47 +82,96 @@ public class tutorial1 {
 		}
 		//this is basically a glorified for loop though.
 		//where while loops really shine is when we are doing more complex operations to determine whether we should stop or not
-		int degeneracy = 0;
-		int animeWatchlist = 20;
-		int goingOutside = 10;
-		int daysUntilFailure = 0;
-		while (degeneracy < 100) { //how many days before you become a degenerate
-			if (animeWatchlist != 0) {//if there are still anime on your watchlist you will watch
-				degeneracy += 10; //makes you become more of a degenerate
-				animeWatchlist--; //you have one less in your watch list
+		
+		
+		/* situation: 
+		 * 		we have a half full pool and need 100 more gallons of water to fully fill it up
+		 * 		each day we can only add a gallon of water to the pool
+		 * 		it will rain for the next 20 days each day adding 10 gallons of water
+		 * 		the pool has leaks that will take 10 days to patch. each day the pool loses 15 gallons of water
+		*/
+		int progress = 0;
+		int rain = 20;
+		int leaks = 10;
+		int daysUntilFull = 0;
+		while (progress < 100) { //how many days before is full
+			if (rain != 0) {//if it is still raining
+				progress += 10; //the pool will fill 10 gallons that day
+				rain--; //a rainy day has passed
 			}
-			if (goingOutside != 0) { //if there are still days to go outside
-				degeneracy -= 15; //subtract from your degeneracy score
-				goingOutside--;
+			if (leaks != 0) { //if there are still leaks
+				progress -= 15; //15 gallons leaked
+				leaks--; //one less day until they are patched
 			}
-			degeneracy++; //add one degeneracy point each day;
-			daysUntilFailure++;
+			progress++; //you can add one more gallon yourself
+			daysUntilFull++;//one day passes each loop
 		}
-		System.out.println("You made it " + daysUntilFailure + " days before you became a degenerate");
+		System.out.println("It took " + daysUntilFull + " days to fill the pool");
+
+		
+		//your task: Using your knowledge, I want you to make a program that with an int n does the following
+		/*
+		 * while n is greater than 1, 
+		 * 		print values 0 - n skipping by 5s
+		 * 		divide n by 2
+		 * 
+		 * Example:
+		 * 		Input: n = 20
+		 * 		Output:
+		 * 			0
+		 * 			5
+		 * 			10
+		 * 			15
+		 * 			20
+		 *   		0
+		 *    		5
+		 *     		10
+		 *      	0
+		 * 			5
+		 * 			0
+		 * 
+		 */
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		int n = 20;
+		while (n > 1) {
+			for (int i = 0; i <= n; i += 5) {
+				System.out.println(i);
+			}
+			n /= 2;
+			
+		}
+		
+		
+		//      || - or      && - and       ! - not
+		
+		
+		//priority
+		// ! - first
+		// && - next
+		// || - last
+				
+		
+		int j = 2;
+		int i = 4;
+		
+		while (!(i < 0) && j > 0) {
+			i--;
+			j--;
+			System.out.println("i: " + i + "    j: " + j);
+		}
+		
 		
 	}
 }
 
 
-//your task: Using your knowledge, I want you to make a program that with an int n does the following
-/*
- * while n is greater than 1, 
- * 		print values 0 - n skipping by 5s
- * 		divide n by 2
- * 
- * Example:
- * 		Input: n = 20
- * 		Output:
- * 			0
- * 			5
- * 			10
- * 			15
- * 			20
- *   		0
- *    		5
- *     		10
- *      	0
- * 			5
- * 
- * Hint: dont worry about remainder or anythin just code it as if the input is clean like 20.
- */
+
